@@ -2,29 +2,29 @@ package com.vakPlan.user.models.dbEntity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 /**
  * User DB Entity
  */
 @Entity
 @Table(name = "vakplan_user")
-public class User {
+public class User implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-
-    @Version
-    private Long version;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String email;
     private String firstName;
     private String middleName;
     private String lastName;
     private String phoneNumber;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
